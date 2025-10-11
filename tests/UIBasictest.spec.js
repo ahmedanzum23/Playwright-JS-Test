@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test'); // Require test and expect
 
 // First Test: Accessing the browser object to create a new context
 // CORRECTED: .only is chained directly to test.
-test.only('Browser Context Playwright test', async ({ browser }) => {
+test('Browser Context Playwright test', async ({ browser }) => {
    
 
    //Try to make it
@@ -44,27 +44,27 @@ test.only('Browser Context Playwright test', async ({ browser }) => {
  console.log(allTitles);
 
 
-
 });
 
 
 
 
 
-
-
-
-
-
-
-
-
 // Second Test: Using the standard 'page' fixture
-test('Page Playwright test', async ({ page }) => {
-    // This test automatically gets a new page object
-    await page.goto("https://google.com"); 
+test.only('UI controls', async ({ page }) => {
+
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/"); 
+    const unserName = page.locator('#username');
+    const signIn = page.locator('#signInBtn');
+    //select from the drop down
+    const dropdown = page.locator("select.form-control");
+    await dropdown.selectOption("consult");
+    //select from multiple options admin or user
+    await page.locator(".radiotextsty").last().click();
+    //pop up (web-based)
+    await page.locator("#okayBtn").click();
     
-    // get title - assertion
-    console.log(await page.title());
-    await expect(page).toHaveTitle("Google");
+
+    await page.pause();
+   
 });
