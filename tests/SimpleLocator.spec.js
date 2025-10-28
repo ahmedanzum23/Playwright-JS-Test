@@ -26,7 +26,7 @@ await emailTxt.fill("test@gail.com");
 
 
 
- const fromControl  = page.locator(".form-control");
+ /*const fromControl  = page.locator(".form-control");
  console.log(await fromControl.count());
 
  await fromControl.first().fill("Iphone");
@@ -35,6 +35,38 @@ await emailTxt.fill("test@gail.com");
 
 await fromControl.nth(1).fill("Henry");
 await fromControl.nth(2).fill("cavil");
+*/
+
+
+
+//playwright locator
+
+let firstNameTxt = page.getByRole () ;
+let lasttNameTxt = page.getByRole () ;
+let personal = page.getByText();
+const emailTxt =  page.getByLabel();
+const phoneNum =  page.getByPlaceholder();
+const img1 = page.getByAltText();
+const img2 = page.getByAltText();
+const passTxtt = page.getByPlaceholder();
+
+
+
+
+await firstNameTxt.fill();
+await firstNameTxt.fill();
+await expect(). toBeVisible();
+await emailTxt.fill();
+await phoneNum.fill("");
+await expect (img1).toBeVisible();
+await expect (img2).toBeVisible();
+await page.locator ("").click();
+await page.locator ("").click();
+
+
+
+
+
 
 
 await page.pause();
